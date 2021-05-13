@@ -10,6 +10,20 @@ public class EnemyMovement : MonoBehaviour
     private void Start()
     {
         PrintWaypointNames();
+        MoveAlongPath();
+    }
+
+    private void MoveAlongPath()
+    {
+        foreach (Waypoint wp in path)
+        {
+            Invoke(, 1f);
+        }
+    }
+
+    private void MoveOneSpace()
+    {
+        this.gameObject.transform.position = wp.transform.position;
     }
 
     private void PrintWaypointNames()
