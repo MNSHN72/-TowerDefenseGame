@@ -31,4 +31,8 @@ public class EnemyMovement : MonoBehaviour
             }
         }
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log($"hit by {collision.gameObject.name}");
+    }
 }
