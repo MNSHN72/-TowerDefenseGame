@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -6,6 +7,8 @@ using UnityEngine;
 [ExecuteAlways]
 public class CoordinateLabler : MonoBehaviour
 {
+    [SerializeField] private Color textDefaultColor = Color.white;
+    [SerializeField] private Color textInactiveColor = Color.gray;
     [SerializeField] private TMP_Text CoordinateText;
     private Vector2 CoordinateVector2= new Vector2 (0f,0f);
     private string coordinatesToDisplay;
@@ -21,6 +24,28 @@ public class CoordinateLabler : MonoBehaviour
         {
             ProccessCoordinates();
             UpdateObjectName();
+        }
+        ColorCoordinates();
+        ToggleCoordinateLabels();
+    }
+
+    private void ToggleCoordinateLabels()
+    {
+        if (Input.GetKeyDown("c"))
+        {
+            CoordinateText.enabled = !CoordinateText.IsActive();
+        }
+    }
+
+    private void ColorCoordinates()
+    {
+        if (this.gameObject.GetComponent<Waypoint>().IsAvailable == false)
+        {
+            CoordinateText.color = textInactiveColor;
+        }
+        else
+        {
+            CoordinateText.color = textDefaultColor;
         }
     }
 
