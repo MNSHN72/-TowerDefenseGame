@@ -15,10 +15,5 @@ public class Tower : MonoBehaviour
     {
         TurretHead.transform.LookAt(Enemy.transform);
     }
-    //private IEnumerator TrackEnemy()
-    //{
-    //    TurretHead.transform.LookAt(Enemy.transform);
-    //    yield return new WaitForEndOfFrame();
-    //}
 
 }
