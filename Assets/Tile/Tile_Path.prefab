@@ -11,6 +11,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tile_Path
       objectReference: {fileID: 0}
+    - target: {fileID: 3150746903717623162, guid: a2b2ef6d377b5884aa50cedb67a8c59a, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150746903717623162, guid: a2b2ef6d377b5884aa50cedb67a8c59a, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150746903717623162, guid: a2b2ef6d377b5884aa50cedb67a8c59a, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150746903717623162, guid: a2b2ef6d377b5884aa50cedb67a8c59a, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150746903717623162, guid: a2b2ef6d377b5884aa50cedb67a8c59a, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4286611584
+      objectReference: {fileID: 0}
     - target: {fileID: 5521777820847899077, guid: a2b2ef6d377b5884aa50cedb67a8c59a, type: 3}
       propertyPath: isAvailable
       value: 0
