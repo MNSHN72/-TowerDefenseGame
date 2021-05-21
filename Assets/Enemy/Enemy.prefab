@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path: []
   speed: 1
+  maxHp: 100
 --- !u!65 &4359323563758695518
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -70,6 +71,18 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 67919aeb91d3b154da8e9e251eb75532, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 67919aeb91d3b154da8e9e251eb75532, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 67919aeb91d3b154da8e9e251eb75532, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 67919aeb91d3b154da8e9e251eb75532, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 67919aeb91d3b154da8e9e251eb75532, type: 3}
       propertyPath: m_LocalPosition.x

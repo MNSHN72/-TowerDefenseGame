@@ -13,7 +13,17 @@ public class EnemyMovement : MonoBehaviour
     private void Start()
     {
         currentHp = maxHp;
+        FindPath();
         StartCoroutine(FollowPath());
+    }
+    private void FindPath() 
+    {
+        path.Clear();
+        GameObject parent = GameObject.FindGameObjectWithTag("Path");
+        foreach (Transform child in parent.transform)
+        {
+            path.Add(child.GetComponent<Waypoint>());
+        }
     }
 
     private IEnumerator FollowPath()
@@ -33,6 +43,7 @@ public class EnemyMovement : MonoBehaviour
                 yield return new WaitForEndOfFrame();
             }
         }
+        Destroy(this.gameObject);
     }
     private void OnParticleCollision(GameObject other)
     {

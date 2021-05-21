@@ -486,7 +486,7 @@ GameObject:
   - component: {fileID: 621796592}
   m_Layer: 0
   m_Name: Path
-  m_TagString: Untagged
+  m_TagString: Path
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1280,7 +1280,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7489651735130551083, guid: ca1303c8c51dbcb42b1153f70abc229f, type: 3}
       propertyPath: path.Array.size
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7489651735130551083, guid: ca1303c8c51dbcb42b1153f70abc229f, type: 3}
       propertyPath: path.Array.data[0]

@@ -15,7 +15,10 @@ public class CoordinateLabler : MonoBehaviour
 
     private void Awake()
     {
-        CoordinateText.enabled = false;
+        if (Application.isPlaying == true)
+        {
+            CoordinateText.enabled = false;
+        }
         CoordinateText = GetComponentInChildren<TMP_Text>();
         ProccessCoordinates();
     }
