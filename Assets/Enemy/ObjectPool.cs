@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
 {
-    [SerializeField] private EnemyMovement Enemy;
+    [SerializeField] private EnemyMovement enemyPrefab;
+    [SerializeField] private float spawnTimer = 1f;
     private void Start()
     {
         StartCoroutine(SpawnEnemy());
@@ -13,8 +14,8 @@ public class ObjectPool : MonoBehaviour
     {
         while (Application.isPlaying == true)
         {
-            Instantiate(Enemy, this.gameObject.transform);
-            yield return new WaitForSeconds(1f); 
+            Instantiate(enemyPrefab, this.gameObject.transform);
+            yield return new WaitForSeconds(spawnTimer); 
         }
     }
 }

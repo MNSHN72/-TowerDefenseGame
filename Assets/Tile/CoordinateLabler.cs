@@ -10,7 +10,7 @@ public class CoordinateLabler : MonoBehaviour
     [SerializeField] private Color textDefaultColor = Color.white;
     [SerializeField] private Color textInactiveColor = Color.gray;
     [SerializeField] private TMP_Text CoordinateText;
-    private Vector2 CoordinateVector2= new Vector2 (0f,0f);
+    private Vector2 coordinateVector2= new Vector2 (0f,0f);
     private string coordinatesToDisplay;
 
     private void Awake()
@@ -57,7 +57,7 @@ public class CoordinateLabler : MonoBehaviour
     {
         float x = (this.gameObject.transform.position.x) * 0.1f;
         float y = (this.gameObject.transform.position.z) * 0.1f;
-        CoordinateVector2 = new Vector2(x, y);
+        coordinateVector2 = new Vector2(x, y);
         coordinatesToDisplay = $"({x},{y})";
         CoordinateText.text = coordinatesToDisplay;
     }

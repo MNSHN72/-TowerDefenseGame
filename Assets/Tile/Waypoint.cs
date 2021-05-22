@@ -7,12 +7,12 @@ public class Waypoint : MonoBehaviour
     [SerializeField] private bool isAvailable = true;
     public bool IsAvailable { get { return isAvailable; } }
 
-    [SerializeField] private Tower TowerPrefab;
+    [SerializeField] private Tower towerPrefab;
     private void OnMouseDown()
     {
         if (isAvailable == true)
         {
-            Instantiate(TowerPrefab, this.transform.position, Quaternion.identity);
+            Instantiate(towerPrefab, this.transform.position, Quaternion.identity);
             isAvailable = false;
         }
     }

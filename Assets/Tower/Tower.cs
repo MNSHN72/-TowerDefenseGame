@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    [SerializeField] private GameObject TurretHead;
-    [SerializeField] private EnemyMovement Enemy;
+    [SerializeField] private GameObject turretHead;
+    [SerializeField] private EnemyMovement enemyPrefab;
 
     private void Start()
     {
-        Enemy = FindObjectOfType<EnemyMovement>();
+        enemyPrefab = FindObjectOfType<EnemyMovement>();
     }
     private void Update()
     {
-        TurretHead.transform.LookAt(Enemy.transform);
+        turretHead.transform.LookAt(enemyPrefab.transform);
     }
 
 }
