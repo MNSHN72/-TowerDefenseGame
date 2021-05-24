@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,15 +6,61 @@ using UnityEngine;
 public class Tower : MonoBehaviour
 {
     [SerializeField] private GameObject turretHead;
-    [SerializeField] private ObjectPool objectPool;
+    [SerializeField] private ObjectPool objectPoolInScene;
+    [SerializeField] private EnemyMovement Target;
+    [SerializeField] private ParticleSystem ProjectileParticles;
+    [SerializeField] private float maxRange = 1.5f;
+
+    private float maxDistance = float.PositiveInfinity;
+    private float currentDistance;
 
     private void Start()
     {
-        objectPool = FindObjectOfType<ObjectPool>();
+        objectPoolInScene = FindObjectOfType<ObjectPool>();
     }
     private void Update()
     {
-        turretHead.transform.LookAt(objectPool.Pool[0].transform);
+        Debug.Log(Mathf.FloorToInt(maxDistance));
+        FindTarget();
+        Attack();
     }
 
+    private void FindTarget()
+    {
+        List<EnemyMovement> enemyList = objectPoolInScene.currentlyActiveEnemies;
+        foreach (EnemyMovement enemy in enemyList)
+        {
+            currentDistance = Vector3.Distance(this.gameObject.transform.position, enemy.transform.position);
+            if (currentDistance <= maxDistance && enemy.gameObject.activeSelf == true)
+            {
+                Target = enemy;
+                maxDistance = currentDistance;
+            }
+        }
+    }
+    private void Attack() 
+    {
+            ToggleParticles(ProjectileParticles);
+            AimWeapon(); 
+    }
+    private void ToggleParticles(ParticleSystem inPS) 
+    {
+        var emissionModule = inPS.emission;
+        if ((maxDistance <= maxRange)&&(objectPoolInScene.currentlyActiveEnemies.Count > 0))
+        {
+            emissionModule.enabled = true;
+        }
+        else
+        {
+            emissionModule.enabled = false;
+        }
+    }
+
+    private void AimWeapon()
+    {
+        if (objectPoolInScene.currentlyActiveEnemies.Count > 0 && Target.gameObject.activeSelf == true)
+        {
+            turretHead.transform.LookAt(Target.transform); 
+        }
+    }
 }

@@ -47,7 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path: []
   speed: 1
-  maxHp: 100
+  maxHp: 70
   currentHp: 0
 --- !u!65 &4359323563758695518
 BoxCollider:

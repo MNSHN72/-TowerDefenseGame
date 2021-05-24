@@ -11,6 +11,7 @@ public class ObjectPool : MonoBehaviour
 
     private EnemyMovement[] pool;
     public EnemyMovement[] Pool { get { return pool; } }
+    public List<EnemyMovement> currentlyActiveEnemies { get { return ReturnActiveOnly(pool); } }
     private void Awake()
     {
         PopulatePool();
@@ -26,21 +27,29 @@ public class ObjectPool : MonoBehaviour
 
         for (int i = 0; i < 5; i++)
         {
-            EnemyMovement spawnedEnemy = Instantiate(enemyPrefab, this.gameObject.transform);
-            spawnedEnemy.gameObject.SetActive(false);
-            pool[i] = spawnedEnemy;
+            pool[i] = Instantiate(enemyPrefab, this.gameObject.transform);
+            pool[i].gameObject.SetActive(false);
         }
     }
 
-    IEnumerator SpawnEnemy() 
+    private IEnumerator SpawnEnemy()
     {
-        while (Application.isPlaying == true)
+        foreach (EnemyMovement enemy in pool)
         {
-            foreach (EnemyMovement enemy in pool)
+            enemy.gameObject.SetActive(true);
+            yield return new WaitForSeconds(spawnTimer);
+        }
+    }
+    private List<EnemyMovement> ReturnActiveOnly(EnemyMovement[] inArray)
+    {
+        List<EnemyMovement> output = new List<EnemyMovement>();
+        foreach (EnemyMovement enemy in inArray)
+        {
+            if (enemy.gameObject.activeSelf == true)
             {
-                enemy.gameObject.SetActive(true);
-                yield return new WaitForSeconds(spawnTimer);
+                output.Add(enemy);
             }
         }
+        return output;
     }
 }

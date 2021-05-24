@@ -860,7 +860,7 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
   EmissionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 4
     rateOverTime:
       serializedVersion: 2
@@ -5045,7 +5045,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turretHead: {fileID: 6126553036994404704}
-  objectPool: {fileID: 0}
+  objectPoolInScene: {fileID: 0}
+  Target: {fileID: 0}
+  ProjectileParticles: {fileID: 8794444610780401774}
+  maxRange: 21
 --- !u!1 &8714918797543813083
 GameObject:
   m_ObjectHideFlags: 0

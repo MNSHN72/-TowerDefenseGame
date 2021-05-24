@@ -43,14 +43,21 @@ public class EnemyMovement : MonoBehaviour
                 yield return new WaitForEndOfFrame();
             }
         }
-        Destroy(this.gameObject);
+        KillThisEnemy();
     }
     private void OnParticleCollision(GameObject other)
     {
         currentHp -= 5;
         if (currentHp <= 0)
         {
-            Destroy(this.gameObject);
+            KillThisEnemy();
         }
+    }
+
+    private void KillThisEnemy()
+    {
+        this.gameObject.SetActive(false);
+        this.gameObject.transform.position = gameObject.GetComponentInParent<Transform>().position;
+        currentHp = maxHp;
     }
 }
