@@ -13,18 +13,7 @@ public class Tower : MonoBehaviour
     }
     private void Update()
     {
-        turretHead.transform.LookAt(findTarget().transform);
-    }
-    private EnemyMovement findTarget() 
-    {
-        foreach (EnemyMovement enemy in objectPool.Pool)
-        {
-            if (enemy.gameObject.activeInHierarchy == true)
-            {
-                return enemy;
-            }
-        }
-        return objectPool.Pool[0];
+        turretHead.transform.LookAt(objectPool.Pool[0].transform);
     }
 
 }
