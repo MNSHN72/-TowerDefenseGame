@@ -5,15 +5,26 @@ using UnityEngine;
 public class Tower : MonoBehaviour
 {
     [SerializeField] private GameObject turretHead;
-    [SerializeField] private EnemyMovement enemyPrefab;
+    [SerializeField] private ObjectPool objectPool;
 
     private void Start()
     {
-        enemyPrefab = FindObjectOfType<EnemyMovement>();
+        objectPool = FindObjectOfType<ObjectPool>();
     }
     private void Update()
     {
-        turretHead.transform.LookAt(enemyPrefab.transform);
+        turretHead.transform.LookAt(findTarget().transform);
+    }
+    private EnemyMovement findTarget() 
+    {
+        foreach (EnemyMovement enemy in objectPool.Pool)
+        {
+            if (enemy.gameObject.activeInHierarchy == true)
+            {
+                return enemy;
+            }
+        }
+        return objectPool.Pool[0];
     }
 
 }
