@@ -8,7 +8,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private List<Waypoint> path = new List<Waypoint>();
     [SerializeField] [Range(0f, 5f)] private float speed = 1f;
     [SerializeField] private int maxHp = 100;
-    private int currentHp;
+    [SerializeField]private int currentHp;
     // Start is called before the first frame update
     private void Start()
     {
