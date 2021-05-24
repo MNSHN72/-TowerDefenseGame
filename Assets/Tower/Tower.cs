@@ -62,5 +62,9 @@ public class Tower : MonoBehaviour
         {
             turretHead.transform.LookAt(Target.transform); 
         }
+        else if (Target.gameObject.activeSelf == false)
+        {
+            maxDistance = float.PositiveInfinity;
+        }
     }
 }
