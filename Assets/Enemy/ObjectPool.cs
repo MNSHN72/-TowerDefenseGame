@@ -8,9 +8,10 @@ public class ObjectPool : MonoBehaviour
     [SerializeField] private Enemy enemyPrefab;
     [SerializeField] private float spawnTimer = 1f;
     [SerializeField] private int poolSize = 5;
+    [SerializeField] private Bank bank;
+    public int currentBankBalance { get { return bank.CurrentBalance; } }
 
     private Enemy[] pool;
-    public Enemy[] Pool { get { return pool; } }
     public List<Enemy> currentlyActiveEnemies { get { return ReturnActiveOnly(pool); } }
     private void Awake()
     {
@@ -25,7 +26,7 @@ public class ObjectPool : MonoBehaviour
     {
         pool = new Enemy[poolSize];
 
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < poolSize; i++)
         {
             pool[i] = Instantiate(enemyPrefab, this.gameObject.transform);
             pool[i].gameObject.SetActive(false);

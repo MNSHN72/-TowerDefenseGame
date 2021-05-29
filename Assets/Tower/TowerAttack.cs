@@ -19,7 +19,6 @@ public class TowerAttack : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(Mathf.FloorToInt(maxDistance));
         FindTarget();
         Attack();
     }

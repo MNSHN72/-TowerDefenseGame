@@ -5,15 +5,18 @@ using UnityEngine;
 public class Waypoint : MonoBehaviour
 {
     [SerializeField] private bool isAvailable = true;
+    [SerializeField] private Tower towerPrefab;
+    [SerializeField] private ObjectPool objectPoolInScene;
+    public ObjectPool ObjectPoolInScene { get { return objectPoolInScene; } }
     public bool IsAvailable { get { return isAvailable; } }
 
-    [SerializeField] private Tower towerPrefab;
+
     private void OnMouseDown()
     {
         if (isAvailable == true)
         {
-            Instantiate(towerPrefab, this.transform.position, Quaternion.identity);
-            isAvailable = false;
+            bool hasBeenPlaced = towerPrefab.InstantiateTower(towerPrefab, this.gameObject.transform.position);
+            isAvailable = !hasBeenPlaced;
         }
     }
 }

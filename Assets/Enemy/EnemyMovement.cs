@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -55,5 +56,20 @@ public class EnemyMovement : MonoBehaviour
         this.gameObject.SetActive(false);
         this.gameObject.transform.position = gameObject.GetComponentInParent<Transform>().position;
         enemy.PenalizeGold();
+        CheckGameState();
+    }
+
+    private void CheckGameState()
+    {
+        if (this.gameObject.transform.parent.gameObject.GetComponent<ObjectPool>().currentBankBalance < 0)
+        {
+            RestartLevel();
+        }
+    }
+
+    private void RestartLevel()
+    {
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currentScene.buildIndex);
     }
 }
