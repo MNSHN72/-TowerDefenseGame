@@ -5,13 +5,13 @@ using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
 {
-    [SerializeField] private EnemyMovement enemyPrefab;
+    [SerializeField] private Enemy enemyPrefab;
     [SerializeField] private float spawnTimer = 1f;
     [SerializeField] private int poolSize = 5;
 
-    private EnemyMovement[] pool;
-    public EnemyMovement[] Pool { get { return pool; } }
-    public List<EnemyMovement> currentlyActiveEnemies { get { return ReturnActiveOnly(pool); } }
+    private Enemy[] pool;
+    public Enemy[] Pool { get { return pool; } }
+    public List<Enemy> currentlyActiveEnemies { get { return ReturnActiveOnly(pool); } }
     private void Awake()
     {
         PopulatePool();
@@ -23,7 +23,7 @@ public class ObjectPool : MonoBehaviour
 
     private void PopulatePool()
     {
-        pool = new EnemyMovement[poolSize];
+        pool = new Enemy[poolSize];
 
         for (int i = 0; i < 5; i++)
         {
@@ -34,16 +34,16 @@ public class ObjectPool : MonoBehaviour
 
     private IEnumerator SpawnEnemy()
     {
-        foreach (EnemyMovement enemy in pool)
+        foreach (Enemy enemy in pool)
         {
             enemy.gameObject.SetActive(true);
             yield return new WaitForSeconds(spawnTimer);
         }
     }
-    private List<EnemyMovement> ReturnActiveOnly(EnemyMovement[] inArray)
+    private List<Enemy> ReturnActiveOnly(Enemy[] inArray)
     {
-        List<EnemyMovement> output = new List<EnemyMovement>();
-        foreach (EnemyMovement enemy in inArray)
+        List<Enemy> output = new List<Enemy>();
+        foreach (Enemy enemy in inArray)
         {
             if (enemy.gameObject.activeSelf == true)
             {

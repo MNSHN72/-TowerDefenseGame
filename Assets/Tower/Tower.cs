@@ -7,7 +7,7 @@ public class Tower : MonoBehaviour
 {
     [SerializeField] private GameObject turretHead;
     [SerializeField] private ObjectPool objectPoolInScene;
-    [SerializeField] private EnemyMovement Target;
+    [SerializeField] private Enemy Target;
     [SerializeField] private ParticleSystem ProjectileParticles;
     [SerializeField] private float maxRange = 1.5f;
 
@@ -27,8 +27,8 @@ public class Tower : MonoBehaviour
 
     private void FindTarget()
     {
-        List<EnemyMovement> enemyList = objectPoolInScene.currentlyActiveEnemies;
-        foreach (EnemyMovement enemy in enemyList)
+        List<Enemy> enemyList = objectPoolInScene.currentlyActiveEnemies;
+        foreach (Enemy enemy in enemyList)
         {
             currentDistance = Vector3.Distance(this.gameObject.transform.position, enemy.transform.position);
             if (currentDistance <= maxDistance && enemy.gameObject.activeSelf == true)

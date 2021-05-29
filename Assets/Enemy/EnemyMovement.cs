@@ -7,12 +7,11 @@ public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private List<Waypoint> path = new List<Waypoint>();
     [SerializeField] [Range(0f, 5f)] private float speed = 1f;
-    [SerializeField] private int maxHp = 100;
-    [SerializeField]private int currentHp;
-    // Start is called before the first frame update
-    private void Start()
+    //[SerializeField] private int maxHp = 100;
+    //[SerializeField] private int currentHp;
+    private void OnEnable()
     {
-        currentHp = maxHp;
+        //currentHp = maxHp;
         FindPath();
         StartCoroutine(FollowPath());
     }
@@ -43,21 +42,8 @@ public class EnemyMovement : MonoBehaviour
                 yield return new WaitForEndOfFrame();
             }
         }
-        KillThisEnemy();
-    }
-    private void OnParticleCollision(GameObject other)
-    {
-        currentHp -= 5;
-        if (currentHp <= 0)
-        {
-            KillThisEnemy();
-        }
-    }
-
-    private void KillThisEnemy()
-    {
         this.gameObject.SetActive(false);
         this.gameObject.transform.position = gameObject.GetComponentInParent<Transform>().position;
-        currentHp = maxHp;
     }
+
 }
