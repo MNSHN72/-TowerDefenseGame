@@ -5009,6 +5009,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6202738629582665438}
   - component: {fileID: 2427665331959599851}
+  - component: {fileID: 2877710964751812365}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -5044,11 +5045,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 295f222870034204c920e862d4a383b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2877710964751812365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8398801684862531273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae70d2bafd790b649a3f018fff20c2e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   turretHead: {fileID: 6126553036994404704}
   objectPoolInScene: {fileID: 0}
   Target: {fileID: 0}
   ProjectileParticles: {fileID: 8794444610780401774}
-  maxRange: 21
+  maxRange: 22
 --- !u!1 &8714918797543813083
 GameObject:
   m_ObjectHideFlags: 0
