@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(Enemy))]
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private List<Waypoint> path = new List<Waypoint>();
@@ -26,7 +27,12 @@ public class EnemyMovement : MonoBehaviour
         GameObject parent = GameObject.FindGameObjectWithTag("Path");
         foreach (Transform child in parent.transform)
         {
-            path.Add(child.GetComponent<Waypoint>());
+            Waypoint wp = child.GetComponent<Waypoint>();
+
+            if (wp != null)
+            {
+                path.Add(wp); 
+            }
         }
     }
 
