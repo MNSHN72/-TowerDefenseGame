@@ -19,8 +19,8 @@ public class TowerAttack : MonoBehaviour
     }
     private void Update()
     {
-        FindTarget();
-        Attack();
+            FindTarget();
+            Attack(); 
     }
 
     private void FindTarget()
@@ -59,6 +59,10 @@ public class TowerAttack : MonoBehaviour
         if (objectPoolInScene.currentlyActiveEnemies.Count > 0 && Target.gameObject.activeSelf == true)
         {
             turretHead.transform.LookAt(Target.transform);
+        }
+        else if (objectPoolInScene.currentlyActiveEnemies.Count <= 0)
+        {
+            return;
         }
         else if (Target.gameObject.activeSelf == false)
         {

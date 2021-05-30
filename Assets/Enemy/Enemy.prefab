@@ -74,7 +74,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0cc32211bdb74b40a0b5875e5dfa7c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 100
+  maxHp: 75
   currentHp: 0
 --- !u!114 &903206422858664224
 MonoBehaviour:
@@ -88,6 +88,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90172fb0cfc6db7498bb078a12b19239, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goldReward: 25
+  goldPenalty: 25
+  bank: {fileID: 0}
 --- !u!1001 &4448826202561714069
 PrefabInstance:
   m_ObjectHideFlags: 0
