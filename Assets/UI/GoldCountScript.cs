@@ -8,9 +8,9 @@ public class GoldCountScript : MonoBehaviour
     [SerializeField] private Bank bank;
     private TMP_Text goldCountText;
 
-    private void start()
+    private void Start()
     {
-        goldCountText = this.gameObject.GetComponent<TMP_Text>();
+        goldCountText = this.GetComponent<TMP_Text>();
     }
     private void Update()
     {
